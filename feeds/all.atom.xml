@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tyler A Land</title><link href="http://tyleraland.github.io/techandlife/" rel="alternate"></link><link href="http://tyleraland.github.io/techandlife/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/techandlife/</id><updated>2015-07-05T00:00:00-07:00</updated><entry><title>Markdown</title><link href="http://tyleraland.github.io/techandlife/markdown.html" rel="alternate"></link><updated>2015-07-05T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-05:techandlife/markdown.html</id><summary type="html">&lt;p&gt;[a link][https://daringfireball.net/projects/markdown/syntax "Markdown syntax"]
-Setext header H1
-================&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tyler A Land</title><link href="http://tyleraland.github.io/techandlife/" rel="alternate"></link><link href="http://tyleraland.github.io/techandlife/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/techandlife/</id><updated>2015-07-05T00:00:00-07:00</updated><entry><title>Markdown</title><link href="http://tyleraland.github.io/techandlife/markdown.html" rel="alternate"></link><updated>2015-07-05T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-05:techandlife/markdown.html</id><summary type="html">&lt;p&gt;&lt;a href="https://daringfireball.net/projects/markdown/syntax" title="Markdown syntax"&gt;a link&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Setext header H1&lt;/h1&gt;
 &lt;h2&gt;Setext header H2&lt;/h2&gt;
 &lt;h1&gt;Atx-style H1&lt;/h1&gt;
 &lt;h2&gt;Atx-style H2&lt;/h2&gt;
