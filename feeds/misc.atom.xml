@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tyler A Land</title><link href="https://tyleraland.github.io/" rel="alternate"></link><link href="https://tyleraland.github.io/feeds/misc.atom.xml" rel="self"></link><id>https://tyleraland.github.io/</id><updated>2015-07-05T00:00:00-07:00</updated><entry><title>Markdown</title><link href="https://tyleraland.github.io/markdown.html" rel="alternate"></link><updated>2015-07-05T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-05:markdown.html</id><summary type="html">&lt;p&gt;[a link][https://daringfireball.net/projects/markdown/syntax "Markdown syntax"]
+Setext header H1
+================&lt;/p&gt;
+&lt;h2&gt;Setext header H2&lt;/h2&gt;
+&lt;h1&gt;Atx-style H1&lt;/h1&gt;
+&lt;h2&gt;Atx-style H2&lt;/h2&gt;
+&lt;h3&gt;Atx-style H3&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is
+a bockquote&lt;/p&gt;
+&lt;p&gt;Blocks can be 
+lazily
+wrapped&lt;/p&gt;
+&lt;p&gt;BLock quotes&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;can be nested&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;back to the first level&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Lists&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use asterisks&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dashes&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ordered&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Lists&lt;/li&gt;
+&lt;li&gt;Use&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Numbers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hanging
+  indents&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sete
+A table
+&lt;table table-bordered&gt;
+    &lt;tr&gt;
+        &lt;td&gt;one&lt;/td&gt;
+        &lt;td&gt;two&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;</summary></entry><entry><title>Hello World</title><link href="https://tyleraland.github.io/hello-world.html" rel="alternate"></link><updated>2015-04-25T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-04-25:hello-world.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;Hello World&lt;/strong&gt;, from a &lt;em&gt;page&lt;/em&gt;!&lt;/p&gt;</summary><category term="[hello]"></category></entry></feed>
