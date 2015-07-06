@@ -1,0 +1,6 @@
+*.pyc
+*~
+*.swp
+output/
+env/
+pelican-themes/
