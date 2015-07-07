@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech And Life</title><link href="http://tyleraland.github.io/techandlife/" rel="alternate"></link><link href="http://tyleraland.github.io/techandlife/feeds/blog.atom.xml" rel="self"></link><id>http://tyleraland.github.io/techandlife/</id><updated>2015-07-05T00:00:00-07:00</updated><entry><title>Markdown</title><link href="http://tyleraland.github.io/techandlife/markdown.html" rel="alternate"></link><updated>2015-07-05T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-05:techandlife/markdown.html</id><summary type="html">&lt;p&gt;&lt;a href="https://daringfireball.net/projects/markdown/syntax" title="Markdown syntax"&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Setext header H1&lt;/h1&gt;
+&lt;h2&gt;Setext header H2&lt;/h2&gt;
+&lt;h1&gt;Atx-style H1&lt;/h1&gt;
+&lt;h2&gt;Atx-style H2&lt;/h2&gt;
+&lt;h3&gt;Atx-style H3&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is
+a bockquote&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Blocks can be 
+lazily
+wrapped&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Block quotes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;can be nested&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;back to the first level&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Lists&lt;/li&gt;
+&lt;li&gt;Use asterisks&lt;/li&gt;
+&lt;li&gt;or&lt;/li&gt;
+&lt;li&gt;dashes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A table
+&lt;table table-bordered&gt;
+    &lt;tr&gt;
+        &lt;td&gt;one&lt;/td&gt;
+        &lt;td&gt;two&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="[example]"></category></entry></feed>
