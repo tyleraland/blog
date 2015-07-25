@@ -26,11 +26,39 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://tyleraland.github.io/techandlife/simple-math.html">simple-math</a></h1>
+                    <h1 class="entry-title"><a href="http://tyleraland.github.io/techandlife/ipython.html">ipython</a></h1>
 <footer class="post-info">
-        <span>Fri 24 July 2015</span>
+        <span>Sat 25 July 2015</span>
 
-</footer><!-- /.post-info --><div class="math">$$math^2 = 0$$</div>
+</footer><!-- /.post-info --><div class="math">$$ \frac{\alpha^{x_0}}{\sqrt[3]{\beta}} $$</div>
+<div class="highlight"><pre><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;A simple chirp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="images/ipython_files/ipython_1_0.png" /></p>
+<div class="highlight"><pre>ls ..
+
+Makefile                  [34mimg[m[m/                      pelicanconf.pyc
+Makefile~                 [34mipython-notebooks[m[m/        pelicanconf.py~
+NOTES                     [31mipython2markdown.sh[m[m*      [31mpelicanize-notebooks.sh~[m[m*
+NOTES~                    [31mipython2markdown.sh~[m[m*     publishconf.py
+[34mcontent[m[m/                  [34moutput[m[m/                   publishconf.pyc
+[34mdrafts[m[m/                   [34mpelican-plugins[m[m/          publishconf.py~
+[34menv[m[m/                      [34mpelican-plugins-test[m[m/     requirements.txt
+fabfile.py                [34mpelican-themes[m[m/           requirements.txt~
+glider.png                pelicanconf.py
+</pre></div>
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -86,7 +114,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><p><a href="http://tyleraland.github.io/techandlife/simple-math.html#disqus_thread">comments</a></p>                </article>
+</script><p><a href="http://tyleraland.github.io/techandlife/ipython.html#disqus_thread">comments</a></p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -94,27 +122,32 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="http://tyleraland.github.io/techandlife/ipython.html" rel="bookmark"
-                           title="Permalink to ipython">ipython</a></h1>
+                    <h1><a href="http://tyleraland.github.io/techandlife/simple-math.html" rel="bookmark"
+                           title="Permalink to simple-math">simple-math</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <span>Tue 21 July 2015</span>
+        <span>Fri 24 July 2015</span>
 
-</footer><!-- /.post-info -->                <div class="math">$$ \frac{\alpha^{x_0}}{\sqrt[3]{\beta}} $$</div>
-<p><span class="math">\(x = 4\)</span></p>
-<p>The area of a circle is :math:<code>A_\text{c} = (\pi/4) d^2</code>.</p>
-<div class="highlight"><pre><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</footer><!-- /.post-info -->                <div class="math">$$math^2 = 0$$</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
 
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2 ...</span></pre></div>
-                <a class="readmore" href="http://tyleraland.github.io/techandlife/ipython.html">read more</a>
-<p><a href="http://tyleraland.github.io/techandlife/ipython.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript ...</script>
+                <a class="readmore" href="http://tyleraland.github.io/techandlife/simple-math.html">read more</a>
+<p><a href="http://tyleraland.github.io/techandlife/simple-math.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">

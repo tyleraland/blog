@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and Life</title><link href="http://tyleraland.github.io/techandlife/" rel="alternate"></link><link href="http://tyleraland.github.io/techandlife/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/techandlife/</id><updated>2015-07-24T00:00:00-07:00</updated><entry><title>simple-math</title><link href="http://tyleraland.github.io/techandlife/simple-math.html" rel="alternate"></link><updated>2015-07-24T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-24:techandlife/simple-math.html</id><summary type="html">&lt;div class="math"&gt;$$math^2 = 0$$&lt;/div&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tech and Life</title><link href="http://tyleraland.github.io/techandlife/" rel="alternate"></link><link href="http://tyleraland.github.io/techandlife/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/techandlife/</id><updated>2015-07-25T00:00:00-07:00</updated><entry><title>ipython</title><link href="http://tyleraland.github.io/techandlife/ipython.html" rel="alternate"></link><updated>2015-07-25T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-25:techandlife/ipython.html</id><summary type="html">&lt;div class="math"&gt;$$ \frac{\alpha^{x_0}}{\sqrt[3]{\beta}} $$&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;A simple chirp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="png" src="images/ipython_files/ipython_1_0.png" /&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ls ..
+
+Makefile                  [34mimg[m[m/                      pelicanconf.pyc
+Makefile~                 [34mipython-notebooks[m[m/        pelicanconf.py~
+NOTES                     [31mipython2markdown.sh[m[m*      [31mpelicanize-notebooks.sh~[m[m*
+NOTES~                    [31mipython2markdown.sh~[m[m*     publishconf.py
+[34mcontent[m[m/                  [34moutput[m[m/                   publishconf.pyc
+[34mdrafts[m[m/                   [34mpelican-plugins[m[m/          publishconf.py~
+[34menv[m[m/                      [34mpelican-plugins-test[m[m/     requirements.txt
+fabfile.py                [34mpelican-themes[m[m/           requirements.txt~
+glider.png                pelicanconf.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -55,24 +83,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>ipython</title><link href="http://tyleraland.github.io/techandlife/ipython.html" rel="alternate"></link><updated>2015-07-21T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-21:techandlife/ipython.html</id><summary type="html">&lt;div class="math"&gt;$$ \frac{\alpha^{x_0}}{\sqrt[3]{\beta}} $$&lt;/div&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(x = 4\)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The area of a circle is :math:&lt;code&gt;A_\text{c} = (\pi/4) d^2&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
-
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
-
-&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;A simple chirp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="png" src="Hello-world_files/Hello-world_1_0.png" /&gt;
-&lt;img alt="png" src="images/Hello-world_1_0.png" /&gt;&lt;/p&gt;
+&lt;/script&gt;</summary></entry><entry><title>simple-math</title><link href="http://tyleraland.github.io/techandlife/simple-math.html" rel="alternate"></link><updated>2015-07-24T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-24:techandlife/simple-math.html</id><summary type="html">&lt;div class="math"&gt;$$math^2 = 0$$&lt;/div&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
