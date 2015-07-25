@@ -14,20 +14,6 @@
 
 
 &lt;p&gt;&lt;img alt="png" src="images/ipython_files/ipython_1_0.png" /&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;ls ..
-
-Makefile                  [34mimg[m[m/                      pelicanconf.pyc
-Makefile~                 [34mipython-notebooks[m[m/        pelicanconf.py~
-NOTES                     [31mipython2markdown.sh[m[m*      [31mpelicanize-notebooks.sh~[m[m*
-NOTES~                    [31mipython2markdown.sh~[m[m*     publishconf.py
-[34mcontent[m[m/                  [34moutput[m[m/                   publishconf.pyc
-[34mdrafts[m[m/                   [34mpelican-plugins[m[m/          publishconf.py~
-[34menv[m[m/                      [34mpelican-plugins-test[m[m/     requirements.txt
-fabfile.py                [34mpelican-themes[m[m/           requirements.txt~
-glider.png                pelicanconf.py
-&lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
