@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd ipython-notebooks
+CONTENT=$1
+NOTEBOOKS=$2
+
+cd $NOTEBOOKS
 for NOTEBOOK in *.ipynb; do
     NAME=$(basename $NOTEBOOK .ipynb)
     ipython nbconvert ${NOTEBOOK} --to markdown
