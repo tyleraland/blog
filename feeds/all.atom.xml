@@ -13,7 +13,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="images/ipython_files/ipython_1_0.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="/images/ipython_files/ipython_1_0.png" /&gt;&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
@@ -113,4 +113,4 @@ wrapped&lt;/p&gt;
     &lt;/tr&gt;
 &lt;/table&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="[example]"></category></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="markdown"></category></entry></feed>
