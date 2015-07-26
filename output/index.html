@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Tech and Life</title>
+
+    <link rel="stylesheet" href="http://tyleraland.github.io/techandlife/theme/css/normalize.css" />
+    <link rel="stylesheet" href="http://tyleraland.github.io/techandlife/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="http://tyleraland.github.io/techandlife/theme/css/style.css" />
+    <link rel="stylesheet" href="http://tyleraland.github.io/techandlife/theme/css/pygments.css" />	
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <script src="http://tyleraland.github.io/techandlife/theme/js/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="http://tyleraland.github.io/techandlife">Tech and Life</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+            <li><a href="http://tyleraland.github.io/techandlife/pages/about.html" class="button secondary small">About</a></li>
+            <li><a href="http://tyleraland.github.io/techandlife/pages/privacy-policy.html" class="button secondary small">Privacy Policy</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+        
+
+            <article>
+                <a href="http://tyleraland.github.io/techandlife/ipython.html"><h3 class="article-title">ipython</h3></a>
+<h6 class="subheader" title="2015-07-25T00:00:00-07:00">Sat 25 July 2015
+</h6>
+
+
+<div class="math">$$ \frac{\alpha^{x_0}}{\sqrt[3]{\beta}} $$</div>
+<div class="highlight"><pre><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;A simple chirp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="images/ipython_files/ipython_1_0.png" /></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script><p class="subheader">Category: <a href="http://tyleraland.github.io/techandlife/category/misc.html">misc</a>
+
+</p>
+
+
+
+<p><a href="http://tyleraland.github.io/techandlife/ipython.html#disqus_thread">comments</a></p>            </article>
+
+
+                <hr  class="gradient"/>
+
+
+        
+
+
+            <article>
+                <a href="http://tyleraland.github.io/techandlife/simple-math.html"><h3 class="article-title">simple-math</h3></a>
+<h6 class="subheader" title="2015-07-24T00:00:00-07:00">Fri 24 July 2015
+</h6>
+
+
+<div class="math">$$math^2 = 0$$</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript ...</script><p class="subheader">Category: <a href="http://tyleraland.github.io/techandlife/category/misc.html">misc</a>
+
+</p>
+
+
+
+<p><a href="http://tyleraland.github.io/techandlife/simple-math.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="http://tyleraland.github.io/techandlife/simple-math.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+        
+
+
+            <article>
+                <a href="http://tyleraland.github.io/techandlife/markdown.html"><h3 class="article-title">Markdown</h3></a>
+<h6 class="subheader" title="2015-07-05T00:00:00-07:00">Sun 05 July 2015
+</h6>
+
+
+<p><a href="https://daringfireball.net/projects/markdown/syntax" title="Markdown syntax">link</a></p>
+<h1>Setext header H1</h1>
+<h2>Setext header H2</h2>
+<h1>Atx-style H1</h1>
+<h2>Atx-style H2</h2>
+<h3>Atx-style H3</h3>
+<blockquote>
+<p>This is
+a blockquote</p>
+</blockquote>
+<p>.</p>
+<blockquote>
+<p>Blocks can be 
+lazily
+wrapped</p>
+</blockquote>
+<p>.</p>
+<blockquote>
+<p>Block quotes</p>
+</blockquote>
+<p>.</p>
+<blockquote>
+<blockquote>
+<p>can be nested</p>
+</blockquote>
+</blockquote>
+<p>.</p>
+<blockquote>
+<p>back to the first level</p>
+</blockquote>
+<ul>
+<li>Lists</li>
+<li>Use asterisks</li>
+<li>or</li>
+<li>dashes</li>
+</ul>
+<p>A table
+<table table-bordered>
+    <tr>
+        <td>one</td>
+        <td>two</td>
+    </tr>
+</table></p>
+<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div><p class="subheader">Category: <a href="http://tyleraland.github.io/techandlife/category/blog.html">[blog]</a>
+
+    Tagged: 
+    <a href="http://tyleraland.github.io/techandlife/tag/example.html">[example] </a>
+</p>
+
+
+
+<p><a href="http://tyleraland.github.io/techandlife/markdown.html#disqus_thread">comments</a></p>                <a class="button radius secondary small right" href="http://tyleraland.github.io/techandlife/markdown.html">Read More</a>
+                <hr  class="gradient"/>
+            </article>
+
+            <!-- /#posts-list -->
+<div class="pagination-centered">
+<h6 class="subheader">Page 1 of 1</h6>
+
+<p>
+
+</p>
+</div>
+
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">Site</h5>
+        <ul class="side-nav">
+            <li><a href="http://tyleraland.github.io/techandlife/archives.html">Archives</a>
+            <li><a href="http://tyleraland.github.io/techandlife/tags.html">Tags</a>
+        </ul>
+
+		
+        <h5 class="sidebar-title">Categories</h5>
+        <ul class="side-nav">
+            <li><a href="http://tyleraland.github.io/techandlife/category/blog.html">[blog]</a></li>
+            <li><a href="http://tyleraland.github.io/techandlife/category/misc.html">misc</a></li>
+   
+        </ul>
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+		
+        <h5 class="sidebar-title">Social</h5>
+        <ul class="side-nav">
+            <li><a href="http://github.com/tyleraland">Github Profile</a></li>
+            <li><a href="http://www.linkedin.com/in/tyleraland">LinkedIn Resume</a></li>
+        </ul>
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+              <!--                  <p>Tech and Life by Tyler A Land</p> -->
+            </div>
+            </div>
+    </div>
+</footer>
+</body>
+</html>
