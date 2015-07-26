@@ -2,6 +2,7 @@
 *.pyc
 *~
 *.swp
+*/.ipynb_checkpoints/
 output/
 env/
 pelican-themes/

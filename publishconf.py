@@ -10,7 +10,6 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-#SITEURL = 'www.tyleraland.net'
 SITEURL = 'http://tyleraland.github.io/techandlife'
 RELATIVE_URLS = False
 
@@ -21,6 +20,5 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-#DISQUS_SITENAME = ""
 DISQUS_SITENAME = "tyleraland"
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-64863813-1"
