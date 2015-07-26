@@ -51,7 +51,7 @@ SOCIAL = (('Github Profile', 'http://github.com/tyleraland'),
 DEFAULT_PAGINATION = 10
 
 # Use document-relative URLs when developing
-RELATIVE_URLS = True
+#RELATIVE_URLS = True
 
 #READERS = {'html': None}
 
@@ -62,16 +62,14 @@ PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['render_math']
 
 #THEME = "pelican-themes/blueidea"
-#THEME = "pelican-themes/Responsive-Pelican"
-#THEME = "pelican-themes/bootstrap2"
-#THEME = 'pelican-themes/tuxlite_tbs'
+THEME = 'pelican-themes/tuxlite_tbs'
 #THEME = 'pelican-themes/foundation-default-colours'
 #THEME = 'pelican-themes/gum'
-#THEME = 'notmyidea'
 #THEME = 'pelican-themes/mg'
-THEME = 'pelican-themes/zurb-F5-basic'
+#THEME = 'pelican-themes/zurb-F5-basic'
 
 # BlueIdea options
 
 #DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = True
 

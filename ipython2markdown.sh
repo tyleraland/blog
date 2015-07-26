@@ -13,6 +13,7 @@ for NOTEBOOK in *.ipynb; do
     mv -f ${NAME}_files ../content/images/
     echo "title: ${NAME}" > ../content/${NAME}.md
     echo "date: `date '+%Y-%m-%d'`" >> ../content/${NAME}.md
+    echo "category: tech" >> ../content/${NAME}.md
     sed "s/${NAME}_files/\/images\/${NAME}_files/g" ${NAME}.md >> ../content/${NAME}.md
     rm ${NAME}.md
 done
