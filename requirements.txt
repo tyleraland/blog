@@ -18,3 +18,5 @@ wsgiref==0.1.2
 ghp-import
 pelican
 Markdown
+# Beautifulsoup4 is necessary to prevent truncation of inserted javascript
+beautifulsoup4
