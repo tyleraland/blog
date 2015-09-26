@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/style.min.css">
   <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/pygments.min.css">
   <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/font-awesome.min.css">
-  <link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tech and Life Atom">
+  <link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Superuser blog Atom">
   <link rel="shortcut icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
   <link rel="icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
 
@@ -14,13 +14,13 @@
   <meta name="robots" content="" />
   <meta name="author" content="Tyler A Land" />
   <meta name="description" content="" />
-<meta property="og:site_name" content="Tech and Life"/>
+<meta property="og:site_name" content="Superuser blog"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:title" content="Tech and Life"/>
+<meta property="og:title" content="Superuser blog"/>
 <meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="http://tyleraland.github.io/blog"/>
-  <title>Tech and Life &ndash; Posts by: Tyler A Land</title>
+  <title>Superuser blog &ndash; Posts by: Tyler A Land</title>
 </head>
 <body>
   <aside>
@@ -36,6 +36,7 @@
         </ul>
       </nav>
       <ul class="social">
+        <li><a class="sc-envelope-o" href="mailto:tyleraland-at-gmail-dot-com" target="_blank"><i class="fa fa-envelope-o"></i></a></li>
         <li><a class="sc-github-alt" href="http://github.com/tyleraland" target="_blank"><i class="fa fa-github-alt"></i></a></li>
         <li><a class="sc-linkedin" href="http://www.linkedin.com/in/tyleraland" target="_blank"><i class="fa fa-linkedin"></i></a></li>
         <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
@@ -52,84 +53,12 @@
   <header>
     <h2><a href="http://tyleraland.github.io/blog/ipython.html#ipython">ipython</a></h2>
     <p>
-      Posted on Sun 26 July 2015 in <a href="http://tyleraland.github.io/blog/category/tech.html">tech</a> &#8226;
+      Posted on Sat 29 August 2015 in <a href="http://tyleraland.github.io/blog/category/tech.html">tech</a> &#8226;
       &#8226; <a href="http://tyleraland.github.io/blog/ipython.html#disqus_thread">Leave a comment</a>
     </p>
   </header>
   <div>
-      <div class="math">$$ \frac{\alpha^{x_0}}{\sqrt[3]{\beta}} $$</div>
-<div class="highlight"><pre><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;A simple chirp&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-
-<p><img alt="png" src="http://tyleraland.github.io/blog/images/ipython_files/ipython_1_0.png" /></p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em ...</script><script type='text/javascript'>if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript'; 
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
+      
       <a class="btn" href="http://tyleraland.github.io/blog/ipython.html#ipython">Continue reading</a>
   </div>
   <hr />
@@ -213,7 +142,7 @@ wrapped</p>
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " Tech and Life ",
+  "name": " Superuser blog ",
   "url" : "http://tyleraland.github.io/blog",
   "image": "",
   "description": ""
