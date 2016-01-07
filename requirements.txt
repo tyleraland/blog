@@ -1,6 +1,7 @@
 Jinja2==2.7.3
 MarkupSafe==0.23
 SQLAlchemy==0.9.8
+# Beautifulsoup4 is necessary to prevent truncation of inserted javascript
 beautifulsoup4==4.3.2
 evernote==1.25.0
 geeknote==0.2a
@@ -18,5 +19,3 @@ wsgiref==0.1.2
 ghp-import
 pelican
 Markdown
-# Beautifulsoup4 is necessary to prevent truncation of inserted javascript
-beautifulsoup4

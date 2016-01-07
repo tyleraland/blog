@@ -63,9 +63,9 @@ help:
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
 	@echo '                                                                          '
 
-ipython:
-	./ipython2markdown.sh $(INPUTDIR) $(NOTEBOOKS)
-html: ipython
+#ipython:
+#	./ipython2markdown.sh $(INPUTDIR) $(NOTEBOOKS)
+html: #ipython
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 clean:
@@ -100,7 +100,7 @@ stopserver:
 	$(BASEDIR)/develop_server.sh stop
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
-publish: ipython
+publish: #ipython
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 ssh_upload: publish

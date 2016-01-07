@@ -6,7 +6,8 @@ from os import path
 
 ### basic theme Options
 AUTHOR = u'Tyler A Land'
-SITENAME = u'Tech and Life'
+# This doesn't affect the displayed title
+SITENAME = u'Super User Blog'
 # SITEURL is also defined in publishconf.py; blank URL is for opening with file://
 #SITEURL = 'http://tyleraland.github.io/techandlife'
 SITEURL = 'http://localhost:8000'
@@ -16,8 +17,9 @@ DEFAULT_LANG = u'en'
 FAVICON = path.join(SITEURL, 'favicon.ico')
 
 ### Flex theme options
-SITETITLE = 'Tech and Life'
-SITELOGO = ''
+SITETITLE = 'Super User Blog'
+#SITELOGO = ''
+SITELOGO = 'http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg'
 COPYRIGHT_YEAR = datetime.now().strftime("%Y")
 MAIN_MENU = True
 USE_FOLDER_AS_CATEGORY = True
@@ -99,7 +101,7 @@ SITEMAP = {'format': 'xml',
 
 #THEME = "pelican-themes/blueidea"
 #THEME = "notmyidea"
-THEME = 'pelican-themes/tuxlite_tbs'
+#THEME = 'pelican-themes/tuxlite_tbs'
 #THEME = 'pelican-themes/foundation-default-colours'
 #THEME = 'pelican-themes/gum'
 #THEME = 'pelican-themes/mg'
