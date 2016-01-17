@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="http://tyleraland.github.io/blog"/>
 <meta property="og:image" content="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg">
-  <title>Super User Blog</title>
+  <title>Super User Blog &ndash; Posts by: Tyler A Land</title>
 </head>
 <body>
   <aside>
@@ -60,6 +60,7 @@
   </header>
   <div>
       
+      <a class="btn" href="http://tyleraland.github.io/blog/ipython.html#ipython">Continue reading</a>
   </div>
   <hr />
 </article>
@@ -72,102 +73,8 @@
     </p>
   </header>
   <div>
-      <p>On the first day of the new year, I suffered the loss of my 3.5 year-old Macbook Air and quickly set out to find a replacement.  I ultimately settled on a 13" Macbook Pro with Retina Display.  From my previous workhorse, I've doubled my memory and SSD storage to 8GB and 250GB, respectively, without noticing the slight weight increase.</p>
-<p>Getting up and running on a new machine can be an arduous task, so I've taken some notes on what I ultimately needed.
-Note that some of these installs (e.g. Slate) may come from third-party developers or require some sort of privileged access that requires fiddling with some settings to enable.  Two places to remember are System Preferences -&gt; General (Toggle to "Allow apps from Anywhere" temporarily), System Preferences -&gt; Privacy -&gt; Accessibility (Toggle which apps can "control your computer").</p>
-<h1>OS and GUI applications</h1>
-<ul>
-<li>First thing, upgrade OS (in my case, Yosemite to El Capitan)</li>
-<li>Open the App Store</li>
-<li>Install XCode from the App Store</li>
-<li>Install Evernote from the App Store, while we're at it.</li>
-<li>Install Alfred from the App store, too.</li>
-<li><a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> - because Safari just won't do.</li>
-<li><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> - when Chrome isn't supported.</li>
-<li><a href="http://www.xquartz.org/">XQuartz</a> - for GUIs</li>
-<li><a href="https://www.spotify.com/us/download/mac/#_=_">Spotify</a> - for music</li>
-<li><a href="https://justgetflux.com/news/pages/macquickstart/">f.lux</a> - so I can sleep at night</li>
-<li><a href="https://iterm2.com/">iTerm2</a> - my preferred terminal</li>
-<li><a href="https://www.rescuetime.com/signup/solo/lite">Rescuetime "Lite"</a> - Note: log in first, then download rescuetime to track your device</li>
-<li><a href="https://www.virtualbox.org/">Virtualbox</a> - I like to target Ubuntu environments</li>
-<li><a href="https://www.dropbox.com/downloading?os=mac">Dropbox</a> - for file sharing</li>
-<li><a href="https://www.hipchat.com/downloads">Hipchat</a> - work chat</li>
-</ul>
-<h1>Command Line installs</h1>
-<p>Now we're getting into the command line configuration</p>
-<h2>Homebrew installs</h2>
-<ul>
-<li><a href="http://brew.sh/">Homebrew</a></li>
-<li>After installing homebrew, you may need to restore permissions: <code>sudo chown -R $(whoami) /usr/local</code></li>
-</ul>
-<div class="highlight"><pre>brew install r
-brew install git
-brew install htop-osx
-brew install openssh
-brew install readline
-brew install sqlite
-brew install tmux
-brew install tree
-brew install wget
-brew install vagrant
-</pre></div>
-
-
-<h2>Misc</h2>
-<ul>
-<li>Install my dotfiles
-<code>git clone https://github.com/tyleraland/dotfiles.git &amp;&amp; bash dotfiles/install.sh</code></li>
-<li><a href="https://github.com/jigish/slate">Slate</a> is a fantastic tool for window management in OSX with keyboard shortcuts.  I use CMD+CTRL+X, where X is a key easily within reach.  I use slate for summoning frequently used applications, hiding windows, resizing windows, and moving windows.  Note you'll need to allow Slate to "control your computer", as described above.</li>
-<li>sshfs - for mounting remote filesystems using the SSH protocol</li>
-</ul>
-<div class="highlight"><pre>wget http://sourceforge.net/projects/osxfuse/files/osxfuse-2.8.2/osxfuse-2.8.2.dmg &amp;&amp; open osxfuse-2.8.2.dmg
-wget https://github.com/osxfuse/sshfs/releases/download/osxfuse-sshfs-2.5.0/sshfs-2.5.0.pkg &amp;&amp; open sshfs-2.5.0.pkg
-</pre></div>
-
-
-<p>Note: On my remote filesystem, I want to access files that are not owned by me but are controlled by groups that are not defined locally on my Mac.  As a result, I get "Permission Denied".  The solution I've found to this problem is to add those groups to my local mac and add my local user to those groups, like so:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo dseditgroup -o create -i <span class="nv">$REMOTEGID</span> <span class="nv">$REMOTEGROUP</span> <span class="c"># Create the group</span>
-<span class="nv">$ </span>sudo dseditgroup -o edit -a <span class="k">$(</span>whoami<span class="k">)</span> -t user <span class="nv">$REMOTEGROUP</span> <span class="c"># Append my user name to the group definition</span>
-</pre></div>
-
-
-<h2>Python Installs</h2>
-<p>With homebrew + python, don't make the mistake of using sudo.  The result will be initial success, but files will ultimately be owned by root (and not your user).  This may be what you want, but you may also have issues down the road.  You can <code>chown -R $(whoami) /usr/local</code> to attempt to reset ownership.  Failing that (as in my case), you can <code>sudo pip uninstall</code> your packages and attempt to re-install without sudo.</p>
-<div class="highlight"><pre>brew install python --with-berkeley-db4 --with-tcl-tk # python &gt;= 2.7.11
-pip install -U pip
-pip install -U setuptools
-pip install -U virtualenv
-# Scientific python stack
-pip install numpy
-pip install pandas
-pip install scipy
-pip install matplotlib
-pip install ipython
-# Misc
-pip install beautifulsoup4
-pip install ghp-import
-pip install jinja2
-pip install Markdown
-pip install markdown2
-pip install pelican
-pip install scons
-pip install jupyter
-pip install csvkit
-pip install ansible
-</pre></div>
-
-
-<h1>Systems settings</h1>
-<ul>
-<li>Map Caps Lock to CTRL: System Preferences -&gt; Keyboard -&gt; Keyboard -&gt; Modifier Keys -&gt; </li>
-</ul>
-<h1>Java</h1>
-<ul>
-<li>Download and install <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SDK</a></li>
-<li>Download and install <a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/mars/R1a/eclipse-inst-mac64.tar.gz">Eclipse SDK</a></li>
-</ul>
-<h1>Thanks</h1>
-<p>Lots of thanks to my boss Noah Hoffman for his (very similar) <a href="http://nhoffman.github.io/borborygmi/mac-setup-el-capitan.html">blog post</a>.</p>
+      <p>On the first day of the new year, I suffered the loss of my 3.5 year-old Macbook Air and quickly set out to find a replacement.  I ultimately settled on a 13" Macbook Pro with Retina Display.  From my previous workhorse, I've doubled my memory and SSD storage ...</p>
+      <a class="btn" href="http://tyleraland.github.io/blog/setting-up-a-new-macbook-in-2016.html#setting-up-a-new-macbook-in-2016">Continue reading</a>
   </div>
   <hr />
 </article>
@@ -226,6 +133,7 @@ wrapped</p>
 </table></p>
 <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span>
 </pre></div>
+      <a class="btn" href="http://tyleraland.github.io/blog/markdown.html#markdown">Continue reading</a>
   </div>
 </article>
 
