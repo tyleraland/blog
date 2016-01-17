@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>superuser blog</title><link href="http://tyleraland.github.io/blog/" rel="alternate"></link><link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/blog/</id><updated>2016-01-16T00:00:00-08:00</updated><entry><title>ipython</title><link href="http://tyleraland.github.io/blog/ipython.html" rel="alternate"></link><updated>2016-01-16T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-16:blog/ipython.html</id><summary type="html"></summary></entry><entry><title>Setting up a new Macbook in 2016</title><link href="http://tyleraland.github.io/blog/setting-up-a-new-macbook-in-2016.html" rel="alternate"></link><updated>2016-01-16T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-16:blog/setting-up-a-new-macbook-in-2016.html</id><summary type="html">&lt;p&gt;On the first day of the new year, I suffered the loss of my 3.5 year-old Macbook Air and quickly set out to find a replacement.  I ultimately settled on a 13" Macbook Pro with Retina Display.  From my previous workhorse, I've doubled my memory and SSD storage to 8GB and 250GB, respectively, without noticing the slight weight increase.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>superuser blog</title><link href="http://tyleraland.github.io/blog/" rel="alternate"></link><link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/blog/</id><updated>2016-01-16T00:00:00-08:00</updated><entry><title>Setting up a new Macbook in 2016</title><link href="http://tyleraland.github.io/blog/setting-up-a-new-macbook-in-2016.html" rel="alternate"></link><updated>2016-01-16T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-16:blog/setting-up-a-new-macbook-in-2016.html</id><summary type="html">&lt;p&gt;On the first day of the new year, I suffered the loss of my 3.5 year-old Macbook Air and quickly set out to find a replacement.  I ultimately settled on a 13" Macbook Pro with Retina Display.  From my previous workhorse, I've doubled my memory and SSD storage to 8GB and 250GB, respectively, without noticing the slight weight increase.&lt;/p&gt;
 &lt;p&gt;Getting up and running on a new machine can be an arduous task, so I've taken some notes on what I ultimately needed.
 Note that some of these installs (e.g. Slate) may come from third-party developers or require some sort of privileged access that requires fiddling with some settings to enable.  Two places to remember are System Preferences -&amp;gt; General (Toggle to "Allow apps from Anywhere" temporarily), System Preferences -&amp;gt; Privacy -&amp;gt; Accessibility (Toggle which apps can "control your computer").&lt;/p&gt;
 &lt;h1&gt;OS and GUI applications&lt;/h1&gt;
@@ -94,48 +94,14 @@ pip install ansible
 &lt;li&gt;Download and install &lt;a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/mars/R1a/eclipse-inst-mac64.tar.gz"&gt;Eclipse SDK&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1&gt;Thanks&lt;/h1&gt;
-&lt;p&gt;Lots of thanks to my boss Noah Hoffman for his (very similar) &lt;a href="http://nhoffman.github.io/borborygmi/mac-setup-el-capitan.html"&gt;blog post&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Markdown</title><link href="http://tyleraland.github.io/blog/markdown.html" rel="alternate"></link><updated>2015-07-05T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2015-07-05:blog/markdown.html</id><summary type="html">&lt;p&gt;&lt;a href="https://daringfireball.net/projects/markdown/syntax" title="Markdown syntax"&gt;link&lt;/a&gt;&lt;/p&gt;
-&lt;h1&gt;Setext header H1&lt;/h1&gt;
-&lt;h2&gt;Setext header H2&lt;/h2&gt;
-&lt;h1&gt;Atx-style H1&lt;/h1&gt;
-&lt;h2&gt;Atx-style H2&lt;/h2&gt;
-&lt;h3&gt;Atx-style H3&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;This is
-a blockquote&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Blocks can be 
-lazily
-wrapped&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Block quotes&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;can be nested&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;back to the first level&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Lists&lt;/li&gt;
-&lt;li&gt;Use asterisks&lt;/li&gt;
-&lt;li&gt;or&lt;/li&gt;
-&lt;li&gt;dashes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A table
-&lt;table table-bordered&gt;
-    &lt;tr&gt;
-        &lt;td&gt;one&lt;/td&gt;
-        &lt;td&gt;two&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="markdown"></category></entry></feed>
+&lt;p&gt;Lots of thanks to my boss Noah Hoffman for his (very similar) &lt;a href="http://nhoffman.github.io/borborygmi/mac-setup-el-capitan.html"&gt;blog post&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Privacy Policy</title><link href="http://tyleraland.github.io/blog/privacy-policy.html" rel="alternate"></link><updated>2016-01-01T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-01:blog/privacy-policy.html</id><summary type="html">&lt;p&gt;This site uses Google Analytics to track usage.  Any page that you land on will cause your browser to execute some javascript code, informing Google's servers that you have visited this site.&lt;/p&gt;
+&lt;h3&gt;What kinds of data does Google Analytics record?&lt;/h3&gt;
+&lt;p&gt;The duration of your stay, which browser you're using, the previous web page that linked you here, and potentially quite a bit more.&lt;/p&gt;
+&lt;p&gt;Additionally, and notably, I have enabled Remarketing with Google Analytics.  This allows Google to track additional information about you such as your estimated age, estimated gender, and categories of interest.&lt;/p&gt;
+&lt;h3&gt;What do I do with your data?&lt;/h3&gt;
+&lt;p&gt;The tracking information allows me to better understand who is coming to my site and what content they're reading.  With this information, I can make more informed decisions when producing content.  I may summarize and publicly share aggregate statistics of the data that I collect.  No personally identifying information is included in this reporting.&lt;/p&gt;
+&lt;p&gt;I also want to be better informed about how Google Analytics works and what it is capable of.  All of my activity falls within the bounds of the &lt;a href="http://www.google.com/analytics/tos.html"&gt;Google Analytics Terms of Service&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Why am I telling you this?&lt;/h3&gt;
+&lt;p&gt;Google requires that users of Google Analytics provide a privacy policy on their site which is easily accessible that includes specific information describing how it is being used to track.&lt;/p&gt;
+&lt;h3&gt;Want to opt out?&lt;/h3&gt;
+&lt;p&gt;Of course, you are more than willing to &lt;a href="https://tools.google.com/dlpage/gaoptout/"&gt;opt out of Google Analytics&lt;/a&gt;&lt;/p&gt;</summary></entry></feed>
