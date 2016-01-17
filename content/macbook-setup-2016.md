@@ -10,8 +10,8 @@ Note that some of these installs (e.g. Slate) may come from third-party develope
 
 # OS and GUI applications
 
-* First thing, upgrade OS (in my case, Yosemite to El Capitan)
 * Open the App Store
+* First thing, upgrade OS if applicable (in my case, Yosemite to El Capitan)
 * Install XCode from the App Store
 * Install Evernote from the App Store, while we're at it.
 * Install Alfred from the App store, too.
