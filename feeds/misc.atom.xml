@@ -1,7 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>superuser blog</title><link href="http://tyleraland.github.io/blog/" rel="alternate"></link><link href="http://tyleraland.github.io/blog/feeds/misc.atom.xml" rel="self"></link><id>http://tyleraland.github.io/blog/</id><updated>2013-09-17T00:00:00-07:00</updated><entry><title>First attempts at Lifelogging with Twitter</title><link href="http://tyleraland.github.io/blog/first-attempts-at-lifelogging-with-twitter.html" rel="alternate"></link><updated>2013-09-17T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2013-09-17:blog/first-attempts-at-lifelogging-with-twitter.html</id><summary type="html">&lt;p&gt;Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter.  At first, my goals were simple: start tracking as much as possible and then analyze it later.  Over time, I settled on tracking food consumption, workouts, and mood.  My hypothesis (biases aside) is that the food that I eat and the exercise that I do has a measurable effect on my quality of life.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>superuser blog</title><link href="http://tyleraland.github.io/blog/" rel="alternate"></link><link href="http://tyleraland.github.io/blog/feeds/misc.atom.xml" rel="self"></link><id>http://tyleraland.github.io/blog/</id><updated>2013-09-18T00:00:00-07:00</updated><entry><title>Visualizing Daily Caloric Intake</title><link href="http://tyleraland.github.io/blog/visualizing-daily-caloric-intake.html" rel="alternate"></link><updated>2013-09-18T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2013-09-18:blog/visualizing-daily-caloric-intake.html</id><summary type="html">&lt;p&gt;After much data collection and munging, I'm proud to present this graph of my strange eating habits for July 2013.
+&lt;img alt="July's Macros" src="/images/macros_july.png" /&gt;
+This breaks down my caloric consumption for each day by carbohydrates (blue), fat (green), and protein (red).  I have data from March 2013 through August 2013, but I chose to drill down on just July.  In this month, I'd been experimenting with high-fat, low-carbohydrate/ketogenic diets for about 12 months and meticulously logging my food consumption, among other things.  By July, the experiment was over and I'd begun to consciously increase my carbohydrate intake, so it should look a little more "balanced" than prior low-carb months.&lt;/p&gt;
+&lt;p&gt;Here are some of my observations using python's 'pandas' library:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# &amp;#39;d&amp;#39; is a pandas.DataFrame of Calories by Carbs,Fat,Protein
+
+print(d)
+# 2013-07-01 773.4620 2344.1805 583.7460
+# 2013-07-02 1477.0428 1862.5788 656.9180
+# 2013-07-03 791.2992 1145.7504 712.7120
+# 2013-07-04 907.0984 1559.7909 801.1384
+# 2013-07-05 1006.6896 1843.2441 947.5256
+# 2013-07-06 986.8680 1703.7360 967.3420
+# 2013-07-07 1143.6960 1274.3370 641.9880
+# 2013-07-08 732.8176 1916.7201 896.9908
+# 2013-07-09 1281.9548 1033.5897 607.8372
+# 2013-07-10 910.2628 2255.0328 772.5288
+# 2013-07-11 1004.7800 1116.3654 380.2240
+# 2013-07-12 377.8120 552.9510 347.5000
+# 2013-07-14 730.3320 1097.0370 335.5200
+# 2013-07-15 363.4920 878.4405 297.7760
+# 2013-07-16 1185.7132 1724.7879 533.2016
+# 2013-07-17 683.2420 1853.9460 891.6680
+# 2013-07-18 701.2500 755.7300 255.1960
+# 2013-07-19 1086.4212 1304.2854 443.5876
+# 2013-07-20 820.5680 2279.5200 781.1020
+# 2013-07-21 562.9880 935.3340 582.4880
+# 2013-07-22 713.1772 1146.1482 491.8272
+# 2013-07-23 822.6144 1156.8348 690.3592
+# 2013-07-24 553.5544 1421.2611 570.9420
+# 2013-07-25 558.5900 1093.3965 282.0560
+# 2013-07-26 671.7104 1042.0452 636.4024
+# 2013-07-27 885.8336 1445.3289 622.4760
+# 2013-07-28 511.8304 1867.7844 512.1832
+# 2013-07-29 963.0200 1416.5055 572.4840
+# 2013-07-30 1019.4208 1697.9346 650.9468
+# 2013-07-31 850.8284 1446.4989 832.9432
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;One of the first things I was curious to investigate was my macronutrient ratios.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Total monthly Calories of [Carb, Fat, Protein]
+totalc = map( lambda k: int(pandas.np.sum(d[k])), d.keys())
+
+# Daily average in grams
+totalc[0] / 4 / len(d) # 4 Calories per gram of carbohydrate
+totalc[1] / 9 / len(d) # 9 Calories per gram of fat
+totalc[2] / 4 / len(d) # 4 Calories per gram of protein
+# 208g Carb
+# 159g Fat
+# 152g Protein
+# 208g Carbohydrate
+
+# Ratios
+map( lambda nut: float(nut)/pandas.np.sum(totalc), totalc)
+# 29% Carbohydrate
+# 50% Fat
+# 21% Protein
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;First, but not most surprisingly, I'm eating many more carbohydrates (208g) than my previously ketogenic diet would permit. With that said, I've had plenty of energy. I've been weightlifting regularly (July was a very consistent month) and as I've increased my carbohydrates and decreased my fat, I've been steadily gaining muscle as well as fat.&lt;/p&gt;
+&lt;p&gt;Second, I manage to eat a staggering amount of fat! When I was tracking my food, I was concerned my fat intake would appear low because of how difficult it is to track cooking oil consumption--not so, apparently. With 50% of my Calories coming from fat (predominantly monounsaturated and saturated, I'll bet), I'm well above the USDA's upper-recommendations of 30%, which makes me quite the deviant.&lt;/p&gt;
+&lt;p&gt;Third, I have been shooting for 150-200g protein per day. I'm just barely meeting my goal at 150g. This is a little annoying to me, but it looks to be low because of the occasional low-protein day. July was a great month for muscle gain, so I can't complain too much.  This data is missing several foods that I had issues tracking (protein powder) because they weren't in the easy database.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pandas.np.sum(totalc) / len(d)
+# 2884
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lastly, my caloric intake is all over the place. 2880 Calories is roughly the intake I've been shooting for to gain muscle and maintain fat, but my lowest-Calorie day is about 1/3 my highest-Calorie day. This may be due to a data error ... I'll have to investigate later.&lt;/p&gt;
+&lt;p&gt;As for the data I've been collecting, this is the tip of the iceberg. In the future I plan on looking at how my macronutrient ratios have changed month-to-month, what I eat, what kinds of vitamins/minerals I get, my meal frequency, and many more fun observations.&lt;/p&gt;</summary></entry><entry><title>First attempts at Lifelogging with Twitter</title><link href="http://tyleraland.github.io/blog/first-attempts-at-lifelogging-with-twitter.html" rel="alternate"></link><updated>2013-09-17T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2013-09-17:blog/first-attempts-at-lifelogging-with-twitter.html</id><summary type="html">&lt;p&gt;Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter.  At first, my goals were simple: start tracking as much as possible and then analyze it later.  Over time, I settled on tracking food consumption, workouts, and mood.  My hypothesis (biases aside) is that the food that I eat and the exercise that I do has a measurable effect on my quality of life.&lt;/p&gt;
 &lt;p&gt;Before I settled on logging with Twitter, I shopped around for other tracking apps for my Android phone, but wasn't satisfied with how the app addressed my use case.  Particularly for food: what if the food I eat isn't in the database?  How long does it take me to open the app, type in the food, use the drop-down, select a quantity and units?  I contemplated writing my own Android app to ease these concerns, but fortunately settled on a stupidly simple semi-structured text solution using Twitter.&lt;/p&gt;
 &lt;p&gt;I learned of a Google Apps Script that I could run, free of charge, on a daily timer, to copy my Twitter archive to Google Drive.  With all my data in one places, I could parse the data with python into rows keyed by timestamp and containing text for tokenizing and analysis.&lt;/p&gt;
 &lt;p&gt;At first, I had doubts that I could habitually track all of my food without developing some neuroses.  The data, actually, was straightforward to collect and had some positive side effects on my behavior.  The practice helped be much more mindful about the food that I eat, what ingredients are in my food, how that food makes me feel, etc.  I'd find myself declining to eat something because it wasn't worth the effort to track it.&lt;/p&gt;
 &lt;p&gt;When logging food, I use an abbreviation for the particular food that I'm eating that's defined in a text file.  That abbreviation is mapped to entries in the USDA National Nutrient Database, a giant table with &amp;gt;8,000 rows of foods and measurements of 140 nutrients found in those foods, including macronutrients, individual fatty acids, individual amino acids, vitamins, and minerals.&lt;/p&gt;
-&lt;p&gt;The parsing-and-analysis step is an ongoing hack-fest, but I will be committing over on Github.  My new revised goal for this project is to build a (personal) platform for logging everything possible with semi-structured text.  I don't intend for this code to be meaningful to anyone but me, but maybe it will enable some interesting analyses to share!&lt;/p&gt;</summary><category term="lifelogging"></category></entry></feed>
+&lt;p&gt;The parsing-and-analysis step is an ongoing hack-fest, but I will be committing over on Github.  My new revised goal for this project is to build a (personal) platform for logging everything possible with semi-structured text.  I don't intend for this code to be meaningful to anyone but me, but maybe it will enable some interesting analyses to share!&lt;/p&gt;</summary><category term="lifelogging"></category></entry><entry><title>Exploring the Iris dataset with scikit-learn and ipython</title><link href="http://tyleraland.github.io/blog/exploring-the-iris-dataset-with-scikit-learn-and-ipython.html" rel="alternate"></link><updated>2013-07-02T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2013-07-02:blog/exploring-the-iris-dataset-with-scikit-learn-and-ipython.html</id><summary type="html">&lt;p&gt;Today I'll share some of the goodies I've found while exploring scikit-learn's tutorial and practice embedding code snippets in posts.  I'll try to avoid just rehashing the tutorial. To get started, scikit-learn (and numpy, which it depends on) should be installed.  I also assume we're using ipython, since it makes exploring objects more fun.  Any '?' or '%' prefixes to the following code snippets are functions of IPython.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.datasets&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;load_iris&lt;/span&gt;
+&lt;span class="n"&gt;iris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;load_iris&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The iris dataset is commonly used among the Machine-Learning/Data-Mining communities. Enough is known about the properties of the data that practitioners are confident using it as a test case for new algorithms and the like. I like that it comes built in! To start, let's pretend we don't know anything about the iris data.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;iris?              # Not helpful--whhat attributes are available?
+iris.         # .DESCR, .data, .target, feature_names ...
+print(iris.DESCR)  # Data summary, features and classes...
+iris.data?         # Ah, a numpy ndarray
+iris.data.shape    # (data_points, features) == (150, 4)
+iris.target        # 1-D array of 0&amp;#39;s, 1&amp;#39;s, and 2&amp;#39;s
+iris.target.size   # There are 150; these must be the classes
+iris.feature_names # Here is the enumerated type to the 0/1/2&amp;#39;s
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;numpy's arrays are really nice for indexing and slicing.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;row, col = 5, 10
+iris.data[row]     # Row 5
+iris.data[:,col]   # Column 10
+iris.data[5,10]    # Element at 5,10
+iris.data[[1,2,3]] # Return array of rows 1, 2, and 3
+iris.data.argmax() # Largest element in flattened array
+iris.data.flatten()[iris.data.argmax()] # 7.9
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That was just exploring the data with IPython. If we wanted to completely skip that step, we can jump right in and start learning some rules.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;      &lt;span class="c"&gt;# Training set and classes&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.svm&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LinearSVC&lt;/span&gt; &lt;span class="c"&gt;# Support Vector Classifer&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.linear_model&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LogisticRegression&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.neighbors&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;KNeighborsClassifier&lt;/span&gt;
+
+&lt;span class="c"&gt;# Instantiate each learner&lt;/span&gt;
+&lt;span class="n"&gt;l1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LinearSVC&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;l2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LogisticRegression&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;l3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KNeighborsClassifier&lt;/span&gt; 
+&lt;span class="n"&gt;new_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="p"&gt;[[&lt;/span&gt; &lt;span class="mf"&gt;5.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3.6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.25&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="c"&gt;# Predict its class &lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;learner&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;l1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;l2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;l3&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+  &lt;span class="n"&gt;learner&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;learner&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_data&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c"&gt;# Each says class-0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I like the standard interface to train and use each classifier. In addition, the LogisticRegression learner also assigns a probability to each possible class.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;l2.predict_proba(new_data) # A list of three floats
+                           # [.90, ,09, .00]
+l2.predict_proba(new_data).sum() # ~ 1.0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Each learner also comes with a "score" method for measuring accuracy relative to provided test and class data. It's straightforward to randomize the data, split it into a 'training' and 'test' set, and compare the learners.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;                   &lt;span class="c"&gt;# We want to use its arrays&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RandomState&lt;/span&gt; &lt;span class="c"&gt;# Random functions&lt;/span&gt;
+&lt;span class="n"&gt;RandomState&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;seed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;order&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;             &lt;span class="c"&gt;# Flat array, 0..149&lt;/span&gt;
+
+&lt;span class="c"&gt;# Shuffle the data, determine the training/testing split&lt;/span&gt;
+&lt;span class="n"&gt;RandomState&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;shuffle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;           &lt;span class="c"&gt;# Randomize order in situ&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;order&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="kp"&gt;split&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;                  &lt;span class="c"&gt;# 2/3 training, 1/3 testing&lt;/span&gt;
+
+&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="kp"&gt;split&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kp"&gt;split&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
+&lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="kp"&gt;split&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="kp"&gt;split&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
+
+&lt;span class="c"&gt;# Now train and test&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;learner&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;l1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;l2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;l3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;learner&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;larner&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The resulting scores are .92, .88, and .94 respectively. It appears Nearest Neighbors is the champ today.&lt;/p&gt;</summary><category term="data"></category><category term="python"></category><category term="machine-learning"></category></entry></feed>

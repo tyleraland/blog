@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/font-awesome.min.css">
+  <link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="superuser blog Atom">
+  <link rel="shortcut icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+<meta name="author" content="Tyler A Land" />
+<meta name="description" content="Today I'll share some of the goodies I've found while exploring scikit-learn's tutorial and practice embedding code snippets in posts. I'll try to avoid just rehashing the tutorial. To get started, scikit-learn (and numpy, which it depends on) should be installed. I also assume we're ..." />
+<meta name="keywords" content="data, python, machine-learning">
+<meta property="og:site_name" content="superuser blog"/>
+<meta property="og:title" content="Exploring the Iris dataset with scikit-learn and ipython"/>
+<meta property="og:description" content="Today I'll share some of the goodies I've found while exploring scikit-learn's tutorial and practice embedding code snippets in posts. I'll try to avoid just rehashing the tutorial. To get started, scikit-learn (and numpy, which it depends on) should be installed. I also assume we're ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://tyleraland.github.io/blog/exploring-the-iris-dataset-with-scikit-learn-and-ipython.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-07-02 00:00:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://tyleraland.github.io/blog/author/tyler-a-land.html">
+<meta property="article:section" content="misc"/>
+<meta property="article:tag" content="data"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="machine-learning"/>
+<meta property="og:image" content="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg">  <title>superuser blog &ndash; Exploring the Iris dataset with scikit-learn and ipython</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://tyleraland.github.io/blog">
+        <img src="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg" alt="superuser" title="superuser">
+      </a>
+      <h1><a href="http://tyleraland.github.io/blog">superuser</a></h1>
+      <p></p>
+      <nav>
+        <ul class="list">
+          <li><a href="http://tyleraland.github.io/blog/pages/about.html#about">About</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+        <li><a class="sc-envelope-o" href="mailto:tyleraland-at-gmail-dot-com" target="_blank"><i class="fa fa-envelope-o"></i></a></li>
+        <li><a class="sc-github-alt" href="http://github.com/tyleraland" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+        <li><a class="sc-linkedin" href="http://www.linkedin.com/in/tyleraland" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://tyleraland.github.io/blog">Home</a>
+      <a href="http://tyleraland.github.io/blog/feeds/all.atom.xml">Atom</a>
+    </nav>
+
+<article>
+  <header>
+    <h1 id="exploring-the-iris-dataset-with-scikit-learn-and-ipython">Exploring the Iris dataset with scikit-learn and ipython</h1>
+    <p>Posted on Tue 02 July 2013 in <a href="http://tyleraland.github.io/blog/category/misc.html">misc</a></p>
+  </header>
+  <div>
+    <p>Today I'll share some of the goodies I've found while exploring scikit-learn's tutorial and practice embedding code snippets in posts.  I'll try to avoid just rehashing the tutorial. To get started, scikit-learn (and numpy, which it depends on) should be installed.  I also assume we're using ipython, since it makes exploring objects more fun.  Any '?' or '%' prefixes to the following code snippets are functions of IPython.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+
+
+<p>The iris dataset is commonly used among the Machine-Learning/Data-Mining communities. Enough is known about the properties of the data that practitioners are confident using it as a test case for new algorithms and the like. I like that it comes built in! To start, let's pretend we don't know anything about the iris data.</p>
+<div class="highlight"><pre>iris?              # Not helpful--whhat attributes are available?
+iris.         # .DESCR, .data, .target, feature_names ...
+print(iris.DESCR)  # Data summary, features and classes...
+iris.data?         # Ah, a numpy ndarray
+iris.data.shape    # (data_points, features) == (150, 4)
+iris.target        # 1-D array of 0&#39;s, 1&#39;s, and 2&#39;s
+iris.target.size   # There are 150; these must be the classes
+iris.feature_names # Here is the enumerated type to the 0/1/2&#39;s
+</pre></div>
+
+
+<p>numpy's arrays are really nice for indexing and slicing.</p>
+<div class="highlight"><pre>row, col = 5, 10
+iris.data[row]     # Row 5
+iris.data[:,col]   # Column 10
+iris.data[5,10]    # Element at 5,10
+iris.data[[1,2,3]] # Return array of rows 1, 2, and 3
+iris.data.argmax() # Largest element in flattened array
+iris.data.flatten()[iris.data.argmax()] # 7.9
+</pre></div>
+
+
+<p>That was just exploring the data with IPython. If we wanted to completely skip that step, we can jump right in and start learning some rules.</p>
+<div class="highlight"><pre><span class="n">X</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>      <span class="c"># Training set and classes</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">LinearSVC</span> <span class="c"># Support Vector Classifer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="c"># Instantiate each learner</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span> 
+<span class="n">new_data</span> <span class="o">=</span>  <span class="p">[[</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">]]</span> <span class="c"># Predict its class </span>
+
+<span class="k">for</span> <span class="n">learner</span> <span class="ow">in</span> <span class="p">[</span><span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">,</span><span class="n">l3</span><span class="p">]:</span>
+  <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_data</span><span class="p">))</span> <span class="c"># Each says class-0</span>
+</pre></div>
+
+
+<p>I like the standard interface to train and use each classifier. In addition, the LogisticRegression learner also assigns a probability to each possible class.</p>
+<div class="highlight"><pre>l2.predict_proba(new_data) # A list of three floats
+                           # [.90, ,09, .00]
+l2.predict_proba(new_data).sum() # ~ 1.0
+</pre></div>
+
+
+<p>Each learner also comes with a "score" method for measuring accuracy relative to provided test and class data. It's straightforward to randomize the data, split it into a 'training' and 'test' set, and compare the learners.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>                   <span class="c"># We want to use its arrays</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">RandomState</span> <span class="c"># Random functions</span>
+<span class="n">RandomState</span><span class="o">.</span><span class="kp">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">150</span><span class="p">)</span>             <span class="c"># Flat array, 0..149</span>
+
+<span class="c"># Shuffle the data, determine the training/testing split</span>
+<span class="n">RandomState</span><span class="o">.</span><span class="kp">shuffle</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>           <span class="c"># Randomize order in situ</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">order</span><span class="p">]</span>
+<span class="kp">split</span> <span class="o">=</span> <span class="mi">150</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span>                  <span class="c"># 2/3 training, 1/3 testing</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="kp">split</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="kp">split</span><span class="p">:]</span>
+<span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="kp">split</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="kp">split</span><span class="p">:]</span>
+
+<span class="c"># Now train and test</span>
+<span class="k">for</span> <span class="n">learner</span> <span class="ow">in</span> <span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">,</span><span class="n">l3</span><span class="p">:</span>
+  <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">larner</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+
+
+<p>The resulting scores are .92, .88, and .94 respectively. It appears Nearest Neighbors is the champ today.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://tyleraland.github.io/blog/tag/data.html">data</a>
+      <a href="http://tyleraland.github.io/blog/tag/python.html">python</a>
+      <a href="http://tyleraland.github.io/blog/tag/machine-learning.html">machine-learning</a>
+    </p>
+  </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tyleraland';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</article>
+
+    <footer>
+        <p>&copy; Tyler A Land 2016</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64863813-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "name": "Exploring the Iris dataset with scikit-learn and ipython",
+  "headline": "Exploring the Iris dataset with scikit-learn and ipython",
+  "datePublished": "2013-07-02 00:00:00-07:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Tyler A Land",
+    "url": "http://tyleraland.github.io/blog/author/tyler-a-land.html"
+  },
+  "image": "http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg",
+  "url": "http://tyleraland.github.io/blog/exploring-the-iris-dataset-with-scikit-learn-and-ipython.html",
+  "description": "Today I'll share some of the goodies I've found while exploring scikit-learn's tutorial and practice embedding code snippets in posts. I'll try to avoid just rehashing the tutorial. To get started, scikit-learn (and numpy, which it depends on) should be installed. I also assume we're ..."
+}
+</script></body>
+</html>
