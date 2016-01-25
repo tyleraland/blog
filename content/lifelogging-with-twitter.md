@@ -1,7 +1,6 @@
 title: First attempts at Lifelogging with Twitter
 date: 2013-09-17
 tags: lifelogging
-status: draft
 
 Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter.  At first, my goals were simple: start tracking as much as possible and then analyze it later.  Over time, I settled on tracking food consumption, workouts, and mood.  My hypothesis (biases aside) is that the food that I eat and the exercise that I do has a measurable effect on my quality of life.
 
