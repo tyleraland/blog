@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/font-awesome.min.css">
+  <link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="superuser blog Atom">
+  <link rel="shortcut icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+<meta name="author" content="Tyler A Land" />
+<meta name="description" content="Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter. At first, my goals were simple: start tracking as much as possible and then analyze it later. Over time, I settled on tracking food consumption, workouts, and mood. My hypothesis ..." />
+<meta name="keywords" content="lifelogging">
+<meta property="og:site_name" content="superuser blog"/>
+<meta property="og:title" content="First attempts at Lifelogging with Twitter"/>
+<meta property="og:description" content="Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter. At first, my goals were simple: start tracking as much as possible and then analyze it later. Over time, I settled on tracking food consumption, workouts, and mood. My hypothesis ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://tyleraland.github.io/blog/drafts/first-attempts-at-lifelogging-with-twitter.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-09-17 00:00:00-07:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://tyleraland.github.io/blog/author/tyler-a-land.html">
+<meta property="article:section" content="misc"/>
+<meta property="article:tag" content="lifelogging"/>
+<meta property="og:image" content="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg">  <title>superuser blog &ndash; First attempts at Lifelogging with Twitter</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://tyleraland.github.io/blog">
+        <img src="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg" alt="superuser" title="superuser">
+      </a>
+      <h1><a href="http://tyleraland.github.io/blog">superuser</a></h1>
+      <p></p>
+      <nav>
+        <ul class="list">
+          <li><a href="http://tyleraland.github.io/blog/pages/about.html#about">About</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+        <li><a class="sc-envelope-o" href="mailto:tyleraland-at-gmail-dot-com" target="_blank"><i class="fa fa-envelope-o"></i></a></li>
+        <li><a class="sc-github-alt" href="http://github.com/tyleraland" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+        <li><a class="sc-linkedin" href="http://www.linkedin.com/in/tyleraland" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://tyleraland.github.io/blog">Home</a>
+      <a href="http://tyleraland.github.io/blog/feeds/all.atom.xml">Atom</a>
+    </nav>
+
+<article>
+  <header>
+    <h1 id="first-attempts-at-lifelogging-with-twitter">First attempts at Lifelogging with Twitter</h1>
+    <p>Posted on Tue 17 September 2013 in <a href="http://tyleraland.github.io/blog/category/misc.html">misc</a></p>
+  </header>
+  <div>
+    <p>Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter.  At first, my goals were simple: start tracking as much as possible and then analyze it later.  Over time, I settled on tracking food consumption, workouts, and mood.  My hypothesis (biases aside) is that the food that I eat and the exercise that I do has a measurable effect on my quality of life.</p>
+<p>Before I settled on logging with Twitter, I shopped around for other tracking apps for my Android phone, but wasn't satisfied with how the app addressed my use case.  Particularly for food: what if the food I eat isn't in the database?  How long does it take me to open the app, type in the food, use the drop-down, select a quantity and units?  I contemplated writing my own Android app to ease these concerns, but fortunately settled on a stupidly simple semi-structured text solution using Twitter.</p>
+<p>I learned of a Google Apps Script that I could run, free of charge, on a daily timer, to copy my Twitter archive to Google Drive.  With all my data in one places, I could parse the data with python into rows keyed by timestamp and containing text for tokenizing and analysis.</p>
+<p>At first, I had doubts that I could habitually track all of my food without developing some neuroses.  The data, actually, was straightforward to collect and had some positive side effects on my behavior.  The practice helped be much more mindful about the food that I eat, what ingredients are in my food, how that food makes me feel, etc.  I'd find myself declining to eat something because it wasn't worth the effort to track it.</p>
+<p>When logging food, I use an abbreviation for the particular food that I'm eating that's defined in a text file.  That abbreviation is mapped to entries in the USDA National Nutrient Database, a giant table with &gt;8,000 rows of foods and measurements of 140 nutrients found in those foods, including macronutrients, individual fatty acids, individual amino acids, vitamins, and minerals.</p>
+<p>The parsing-and-analysis step is an ongoing hack-fest, but I will be committing over on Github.  My new revised goal for this project is to build a (personal) platform for logging everything possible with semi-structured text.  I don't intend for this code to be meaningful to anyone but me, but maybe it will enable some interesting analyses to share!</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://tyleraland.github.io/blog/tag/lifelogging.html">lifelogging</a>
+    </p>
+  </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tyleraland';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</article>
+
+    <footer>
+        <p>&copy; Tyler A Land 2016</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64863813-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "name": "First attempts at Lifelogging with Twitter",
+  "headline": "First attempts at Lifelogging with Twitter",
+  "datePublished": "2013-09-17 00:00:00-07:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Tyler A Land",
+    "url": "http://tyleraland.github.io/blog/author/tyler-a-land.html"
+  },
+  "image": "http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg",
+  "url": "http://tyleraland.github.io/blog/drafts/first-attempts-at-lifelogging-with-twitter.html",
+  "description": "Around March 2013, I began tracking the food that I eat, logging workouts, and taking miscellaneous personal notes with Twitter. At first, my goals were simple: start tracking as much as possible and then analyze it later. Over time, I settled on tracking food consumption, workouts, and mood. My hypothesis ..."
+}
+</script></body>
+</html>
