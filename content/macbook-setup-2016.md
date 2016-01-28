@@ -15,6 +15,7 @@ Note that some of these installs (e.g. Slate) may come from third-party develope
 * Install XCode from the App Store
 * Install Evernote from the App Store, while we're at it.
 * Install Alfred from the App store, too.
+* Install Caffeine.
 * [Chrome](https://www.google.com/chrome/browser/desktop/index.html) - because Safari just won't do.
 * [Firefox](https://www.mozilla.org/en-US/firefox/new/) - when Chrome isn't supported.
 * [XQuartz](http://www.xquartz.org/) - for GUIs
