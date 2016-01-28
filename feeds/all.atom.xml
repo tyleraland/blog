@@ -1,5 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>superuser blog</title><link href="http://tyleraland.github.io/blog/" rel="alternate"></link><link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/blog/</id><updated>2016-01-16T00:00:00-08:00</updated><entry><title>Setting up a new Macbook in 2016</title><link href="http://tyleraland.github.io/blog/setting-up-a-new-macbook-in-2016.html" rel="alternate"></link><updated>2016-01-16T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-16:blog/setting-up-a-new-macbook-in-2016.html</id><summary type="html">&lt;p&gt;On the first day of the new year, I suffered the loss of my 3.5 year-old Macbook Air and quickly set out to find a replacement.  I ultimately settled on a 13" Macbook Pro with Retina Display.  From my previous workhorse, I've doubled my memory and SSD storage to 8GB and 250GB, respectively, without noticing the slight weight increase.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>superuser blog</title><link href="http://tyleraland.github.io/blog/" rel="alternate"></link><link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" rel="self"></link><id>http://tyleraland.github.io/blog/</id><updated>2016-01-27T00:00:00-08:00</updated><entry><title>Play with R data sets in Python</title><link href="http://tyleraland.github.io/blog/play-with-r-data-sets-in-python.html" rel="alternate"></link><updated>2016-01-27T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-27:blog/play-with-r-data-sets-in-python.html</id><summary type="html">&lt;p&gt;R comes with a plethora of data sets to play with out of the box, which really come in handy when you're exploring how new functions work.  While Python's &lt;code&gt;pandas&lt;/code&gt; package tries to emulate the best parts of R's data frames, it can be tedious to find "real world" data sets to load or try to create your own toy data sets.  Well, thanks to the rpy2 package (and some incredibly arcane code snippet that will likely change in the future) you can import any of R's data sets directly into a pandas data frame!&lt;/p&gt;
+&lt;p&gt;The &lt;a href="https://rpy2.readthedocs.org/en"&gt;rpy2 package&lt;/a&gt; itself is actually quite a gem.  If you have &lt;a href="https://www.r-project.org"&gt;R&lt;/a&gt; 3.0+ installed in your environment, rpy2 provides an interface to execute R code from python and interact with the results as if they were python objects.  This makes rpy2 like a super-library that lets one use some of the best parts of R from python.  I haven't dared try anything too complicated with rpy2 just yet, but I knew if I could just get R's data sets into a pandas data frame that I'd end up using them.  Take a look at all the data sets at your fingertips in R: (https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/00Index.html)&lt;/p&gt;
+&lt;p&gt;If you'd like to inspect the data sets from R itself:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Start R interpreter from bash
+$ R
+# Interactively look at what data sets are available
+&amp;gt; data()
+# Data sets in package ‘datasets’:
+# 
+# AirPassengers           Monthly Airline Passenger Numbers 1949-1960
+# BJsales                 Sales Data with Leading Indicator
+# BJsales.lead (BJsales)
+#                         Sales Data with Leading Indicator
+# BOD                     Biochemical Oxygen Demand
+# ...
+# volcano                 Topographic Information on Auckland&amp;#39;s Maunga
+#                         Whau Volcano
+# warpbreaks              The Number of Breaks in Yarn during Weaving
+# women                   Average Heights and Weights for American Women
+
+# Let&amp;#39;s look at the BOD data
+&amp;gt; BOD
+#   Time demand
+# 1    1    8.3
+# 2    2   10.3
+# 3    3   19.0
+# 4    4   16.0
+# 5    5   15.6
+# 6    7   19.8
+
+# Use the R Help to to view the description, the source, and some examples
+&amp;gt; ?BOD
+
+# Summarize it from R
+&amp;gt; summary(BOD)
+#      Time           demand
+# Min.   :1.000   Min.   : 8.30
+# 1st Qu.:2.250   1st Qu.:11.62
+# Median :3.500   Median :15.80
+# Mean   :3.667   Mean   :14.83
+# 3rd Qu.:4.750   3rd Qu.:18.25
+# Max.   :7.000   Max.   :19.80
+
+# Let&amp;#39;s look at the AirPassengers data set, too
+&amp;gt; AirPassengers
+#      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+# 1949 112 118 132 129 121 135 148 148 136 119 104 118
+# 1950 115 126 141 135 125 149 170 170 158 133 114 140
+# 1951 145 150 178 163 172 178 199 199 184 162 146 166
+# 1952 171 180 193 181 183 218 230 242 209 191 172 194
+# 1953 196 196 236 235 229 243 264 272 237 211 180 201
+# 1954 204 188 235 227 234 264 302 293 259 229 203 229
+# 1955 242 233 267 269 270 315 364 347 312 274 237 278
+# 1956 284 277 317 313 318 374 413 405 355 306 271 306
+# 1957 315 301 356 348 355 422 465 467 404 347 305 336
+# 1958 340 318 362 348 363 435 491 505 404 359 310 337
+# 1959 360 342 406 396 420 472 548 559 463 407 362 405
+# 1960 417 391 419 461 472 535 622 606 508 461 390 432
+&amp;gt; quit()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now let's get that data into Python.  Note that here, I'm using pandas 0.17.x and I'm following the related &lt;a href="http://pandas.pydata.org/pandas-docs/stable/r_interface.html#rpy-updating"&gt;documentation&lt;/a&gt;.  As of 0.17.0 there appears to be a deprecated interface to rpy (predecessor to rpy2) in pandas that's much cleaner to use, but not future-proof.  I will use the (ugly) supported version and expect that this will become cleaner in later versions of pandas.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;## Arcane incantation&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;rpy2.robjects&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;pandas2ri&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;pandas2ri&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;activate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;rpy2.robjects&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;
+
+&lt;span class="c"&gt;# Now, provide your data set name to the r object&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;df_BOD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pandas2ri&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ri2py&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;BOD&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;df_BOD&lt;/span&gt;
+&lt;span class="c"&gt;#    Time  demand&lt;/span&gt;
+&lt;span class="c"&gt;# 1     1     8.3&lt;/span&gt;
+&lt;span class="c"&gt;# 2     2    10.3&lt;/span&gt;
+&lt;span class="c"&gt;# 3     3    19.0&lt;/span&gt;
+&lt;span class="c"&gt;# 4     4    16.0&lt;/span&gt;
+&lt;span class="c"&gt;# 5     5    15.6&lt;/span&gt;
+&lt;span class="c"&gt;# 6     7    19.8&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;df_BOD&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c"&gt;# &amp;lt;class &amp;#39;pandas.core.frame.DataFrame&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;span class="c"&gt;# Int64Index: 6 entries, 1 to 6&lt;/span&gt;
+&lt;span class="c"&gt;# Data columns (total 2 columns):&lt;/span&gt;
+&lt;span class="c"&gt;# Time      6 non-null float64&lt;/span&gt;
+&lt;span class="c"&gt;# demand    6 non-null float64&lt;/span&gt;
+&lt;span class="c"&gt;# dtypes: float64(2)&lt;/span&gt;
+&lt;span class="c"&gt;# memory usage: 144.0 bytes&lt;/span&gt;
+
+&lt;span class="c"&gt;# Note that some of these data sets are not &lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This works pretty well for converting R data frames into pandas data frames.  Some data structures are a little trickier to convert, like R "time series"&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&amp;gt;&amp;gt;&amp;gt; df_AP = pandas2ri.ri2py(r[&amp;#39;AirPassengers&amp;#39;])
+&amp;gt;&amp;gt;&amp;gt; df_AP
+# array([ 112.,  118.,  132.,  129.,  121.,  135.,  148.,  148.,  136.,
+#         119.,  104.,  118.,  115.,  126.,  141.,  135.,  125.,  149.,
+#         170.,  170.,  158.,  133.,  114.,  140.,  145.,  150.,  178.,
+#         163.,  172.,  178.,  199.,  199.,  184.,  162.,  146.,  166.,
+#         171.,  180.,  193.,  181.,  183.,  218.,  230.,  242.,  209.,
+#         191.,  172.,  194.,  196.,  196.,  236.,  235.,  229.,  243.,
+#         264.,  272.,  237.,  211.,  180.,  201.,  204.,  188.,  235.,
+#         227.,  234.,  264.,  302.,  293.,  259.,  229.,  203.,  229.,
+#         242.,  233.,  267.,  269.,  270.,  315.,  364.,  347.,  312.,
+#         274.,  237.,  278.,  284.,  277.,  317.,  313.,  318.,  374.,
+#         413.,  405.,  355.,  306.,  271.,  306.,  315.,  301.,  356.,
+#         348.,  355.,  422.,  465.,  467.,  404.,  347.,  305.,  336.,
+#         340.,  318.,  362.,  348.,  363.,  435.,  491.,  505.,  404.,
+#         359.,  310.,  337.,  360.,  342.,  406.,  396.,  420.,  472.,
+#         548.,  559.,  463.,  407.,  362.,  405.,  417.,  391.,  419.,
+#         461.,  472.,  535.,  622.,  606.,  508.,  461.,  390.,  432.])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: in R our "time series" object appears to have column names (months) and row names (years).  These fields are not readily available to use as attributes in either R or python.  In R the row names are internally represented by time series attributes with start=1949, end=1960, frequency=12.&lt;/p&gt;</summary></entry><entry><title>Setting up a new Macbook in 2016</title><link href="http://tyleraland.github.io/blog/setting-up-a-new-macbook-in-2016.html" rel="alternate"></link><updated>2016-01-16T00:00:00-08:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2016-01-16:blog/setting-up-a-new-macbook-in-2016.html</id><summary type="html">&lt;p&gt;On the first day of the new year, I suffered the loss of my 3.5 year-old Macbook Air and quickly set out to find a replacement.  I ultimately settled on a 13" Macbook Pro with Retina Display.  From my previous workhorse, I've doubled my memory and SSD storage to 8GB and 250GB, respectively, without noticing the slight weight increase.&lt;/p&gt;
 &lt;p&gt;Getting up and running on a new machine can be an arduous task, so I've taken some notes on what I ultimately needed.
 Note that some of these installs (e.g. Slate) may come from third-party developers or require some sort of privileged access that requires fiddling with some settings to enable.  Two places to remember are System Preferences -&amp;gt; General (Toggle to "Allow apps from Anywhere" temporarily), System Preferences -&amp;gt; Privacy -&amp;gt; Accessibility (Toggle which apps can "control your computer").&lt;/p&gt;
 &lt;h1&gt;OS and GUI applications&lt;/h1&gt;
@@ -96,7 +210,7 @@ pip install ansible
 &lt;/ul&gt;
 &lt;h1&gt;Thanks&lt;/h1&gt;
 &lt;p&gt;Lots of thanks to my boss Noah Hoffman for his (very similar) &lt;a href="http://nhoffman.github.io/borborygmi/mac-setup-el-capitan.html"&gt;blog post&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Visualizing Daily Caloric Intake</title><link href="http://tyleraland.github.io/blog/visualizing-daily-caloric-intake.html" rel="alternate"></link><updated>2013-09-18T00:00:00-07:00</updated><author><name>Tyler A Land</name></author><id>tag:tyleraland.github.io,2013-09-18:blog/visualizing-daily-caloric-intake.html</id><summary type="html">&lt;p&gt;After much data collection and munging, I'm proud to present this graph of my strange eating habits for July 2013.
-&lt;img alt="July's Macros" src="/images/macros_july.png" /&gt;
+&lt;img alt="July's Macros" src="/blog/images/macros_july.png" /&gt;
 This breaks down my caloric consumption for each day by carbohydrates (blue), fat (green), and protein (red).  I have data from March 2013 through August 2013, but I chose to drill down on just July.  In this month, I'd been experimenting with high-fat, low-carbohydrate/ketogenic diets for about 12 months and meticulously logging my food consumption, among other things.  By July, the experiment was over and I'd begun to consciously increase my carbohydrate intake, so it should look a little more "balanced" than prior low-carb months.&lt;/p&gt;
 &lt;p&gt;Here are some of my observations using python's 'pandas' library:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;# &amp;#39;d&amp;#39; is a pandas.DataFrame of Calories by Carbs,Fat,Protein

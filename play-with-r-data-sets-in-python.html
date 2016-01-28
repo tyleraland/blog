@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/pygments.min.css">
+  <link rel="stylesheet" type="text/css" href="http://tyleraland.github.io/blog/theme/css/font-awesome.min.css">
+  <link href="http://tyleraland.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="superuser blog Atom">
+  <link rel="shortcut icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://localhost:8000/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+<meta name="author" content="Tyler A Land" />
+<meta name="description" content="R comes with a plethora of data sets to play with out of the box, which really come in handy when you're exploring how new functions work. While Python's pandas package tries to emulate the best parts of R's data frames, it can be tedious to find ..." />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="superuser blog"/>
+<meta property="og:title" content="Play with R data sets in Python"/>
+<meta property="og:description" content="R comes with a plethora of data sets to play with out of the box, which really come in handy when you're exploring how new functions work. While Python's pandas package tries to emulate the best parts of R's data frames, it can be tedious to find ..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://tyleraland.github.io/blog/play-with-r-data-sets-in-python.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-01-27 00:00:00-08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://tyleraland.github.io/blog/author/tyler-a-land.html">
+<meta property="article:section" content="misc"/>
+<meta property="og:image" content="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg">  <title>superuser blog &ndash; Play with R data sets in Python</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://tyleraland.github.io/blog">
+        <img src="http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg" alt="superuser" title="superuser">
+      </a>
+      <h1><a href="http://tyleraland.github.io/blog">superuser</a></h1>
+      <p></p>
+      <nav>
+        <ul class="list">
+          <li><a href="http://tyleraland.github.io/blog/pages/about.html#about">About</a></li>
+        </ul>
+      </nav>
+      <ul class="social">
+        <li><a class="sc-envelope-o" href="mailto:tyleraland-at-gmail-dot-com" target="_blank"><i class="fa fa-envelope-o"></i></a></li>
+        <li><a class="sc-github-alt" href="http://github.com/tyleraland" target="_blank"><i class="fa fa-github-alt"></i></a></li>
+        <li><a class="sc-linkedin" href="http://www.linkedin.com/in/tyleraland" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="http://tyleraland.github.io/blog">Home</a>
+      <a href="http://tyleraland.github.io/blog/feeds/all.atom.xml">Atom</a>
+    </nav>
+
+<article>
+  <header>
+    <h1 id="play-with-r-data-sets-in-python">Play with R data sets in Python</h1>
+    <p>Posted on Wed 27 January 2016 in <a href="http://tyleraland.github.io/blog/category/misc.html">misc</a></p>
+  </header>
+  <div>
+    <p>R comes with a plethora of data sets to play with out of the box, which really come in handy when you're exploring how new functions work.  While Python's <code>pandas</code> package tries to emulate the best parts of R's data frames, it can be tedious to find "real world" data sets to load or try to create your own toy data sets.  Well, thanks to the rpy2 package (and some incredibly arcane code snippet that will likely change in the future) you can import any of R's data sets directly into a pandas data frame!</p>
+<p>The <a href="https://rpy2.readthedocs.org/en">rpy2 package</a> itself is actually quite a gem.  If you have <a href="https://www.r-project.org">R</a> 3.0+ installed in your environment, rpy2 provides an interface to execute R code from python and interact with the results as if they were python objects.  This makes rpy2 like a super-library that lets one use some of the best parts of R from python.  I haven't dared try anything too complicated with rpy2 just yet, but I knew if I could just get R's data sets into a pandas data frame that I'd end up using them.  Take a look at all the data sets at your fingertips in R: (https://stat.ethz.ch/R-manual/R-patched/library/datasets/html/00Index.html)</p>
+<p>If you'd like to inspect the data sets from R itself:</p>
+<div class="highlight"><pre># Start R interpreter from bash
+$ R
+# Interactively look at what data sets are available
+&gt; data()
+# Data sets in package ‘datasets’:
+# 
+# AirPassengers           Monthly Airline Passenger Numbers 1949-1960
+# BJsales                 Sales Data with Leading Indicator
+# BJsales.lead (BJsales)
+#                         Sales Data with Leading Indicator
+# BOD                     Biochemical Oxygen Demand
+# ...
+# volcano                 Topographic Information on Auckland&#39;s Maunga
+#                         Whau Volcano
+# warpbreaks              The Number of Breaks in Yarn during Weaving
+# women                   Average Heights and Weights for American Women
+
+# Let&#39;s look at the BOD data
+&gt; BOD
+#   Time demand
+# 1    1    8.3
+# 2    2   10.3
+# 3    3   19.0
+# 4    4   16.0
+# 5    5   15.6
+# 6    7   19.8
+
+# Use the R Help to to view the description, the source, and some examples
+&gt; ?BOD
+
+# Summarize it from R
+&gt; summary(BOD)
+#      Time           demand
+# Min.   :1.000   Min.   : 8.30
+# 1st Qu.:2.250   1st Qu.:11.62
+# Median :3.500   Median :15.80
+# Mean   :3.667   Mean   :14.83
+# 3rd Qu.:4.750   3rd Qu.:18.25
+# Max.   :7.000   Max.   :19.80
+
+# Let&#39;s look at the AirPassengers data set, too
+&gt; AirPassengers
+#      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+# 1949 112 118 132 129 121 135 148 148 136 119 104 118
+# 1950 115 126 141 135 125 149 170 170 158 133 114 140
+# 1951 145 150 178 163 172 178 199 199 184 162 146 166
+# 1952 171 180 193 181 183 218 230 242 209 191 172 194
+# 1953 196 196 236 235 229 243 264 272 237 211 180 201
+# 1954 204 188 235 227 234 264 302 293 259 229 203 229
+# 1955 242 233 267 269 270 315 364 347 312 274 237 278
+# 1956 284 277 317 313 318 374 413 405 355 306 271 306
+# 1957 315 301 356 348 355 422 465 467 404 347 305 336
+# 1958 340 318 362 348 363 435 491 505 404 359 310 337
+# 1959 360 342 406 396 420 472 548 559 463 407 362 405
+# 1960 417 391 419 461 472 535 622 606 508 461 390 432
+&gt; quit()
+</pre></div>
+
+
+<p>Now let's get that data into Python.  Note that here, I'm using pandas 0.17.x and I'm following the related <a href="http://pandas.pydata.org/pandas-docs/stable/r_interface.html#rpy-updating">documentation</a>.  As of 0.17.0 there appears to be a deprecated interface to rpy (predecessor to rpy2) in pandas that's much cleaner to use, but not future-proof.  I will use the (ugly) supported version and expect that this will become cleaner in later versions of pandas.</p>
+<div class="highlight"><pre><span class="c">## Arcane incantation</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">pandas2ri</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pandas2ri</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">r</span>
+
+<span class="c"># Now, provide your data set name to the r object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">df_BOD</span> <span class="o">=</span> <span class="n">pandas2ri</span><span class="o">.</span><span class="n">ri2py</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;BOD&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">df_BOD</span>
+<span class="c">#    Time  demand</span>
+<span class="c"># 1     1     8.3</span>
+<span class="c"># 2     2    10.3</span>
+<span class="c"># 3     3    19.0</span>
+<span class="c"># 4     4    16.0</span>
+<span class="c"># 5     5    15.6</span>
+<span class="c"># 6     7    19.8</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">df_BOD</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="c"># &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+<span class="c"># Int64Index: 6 entries, 1 to 6</span>
+<span class="c"># Data columns (total 2 columns):</span>
+<span class="c"># Time      6 non-null float64</span>
+<span class="c"># demand    6 non-null float64</span>
+<span class="c"># dtypes: float64(2)</span>
+<span class="c"># memory usage: 144.0 bytes</span>
+
+<span class="c"># Note that some of these data sets are not </span>
+</pre></div>
+
+
+<p>This works pretty well for converting R data frames into pandas data frames.  Some data structures are a little trickier to convert, like R "time series"</p>
+<div class="highlight"><pre>&gt;&gt;&gt; df_AP = pandas2ri.ri2py(r[&#39;AirPassengers&#39;])
+&gt;&gt;&gt; df_AP
+# array([ 112.,  118.,  132.,  129.,  121.,  135.,  148.,  148.,  136.,
+#         119.,  104.,  118.,  115.,  126.,  141.,  135.,  125.,  149.,
+#         170.,  170.,  158.,  133.,  114.,  140.,  145.,  150.,  178.,
+#         163.,  172.,  178.,  199.,  199.,  184.,  162.,  146.,  166.,
+#         171.,  180.,  193.,  181.,  183.,  218.,  230.,  242.,  209.,
+#         191.,  172.,  194.,  196.,  196.,  236.,  235.,  229.,  243.,
+#         264.,  272.,  237.,  211.,  180.,  201.,  204.,  188.,  235.,
+#         227.,  234.,  264.,  302.,  293.,  259.,  229.,  203.,  229.,
+#         242.,  233.,  267.,  269.,  270.,  315.,  364.,  347.,  312.,
+#         274.,  237.,  278.,  284.,  277.,  317.,  313.,  318.,  374.,
+#         413.,  405.,  355.,  306.,  271.,  306.,  315.,  301.,  356.,
+#         348.,  355.,  422.,  465.,  467.,  404.,  347.,  305.,  336.,
+#         340.,  318.,  362.,  348.,  363.,  435.,  491.,  505.,  404.,
+#         359.,  310.,  337.,  360.,  342.,  406.,  396.,  420.,  472.,
+#         548.,  559.,  463.,  407.,  362.,  405.,  417.,  391.,  419.,
+#         461.,  472.,  535.,  622.,  606.,  508.,  461.,  390.,  432.])
+</pre></div>
+
+
+<p>Note: in R our "time series" object appears to have column names (months) and row names (years).  These fields are not readily available to use as attributes in either R or python.  In R the row names are internally represented by time series attributes with start=1949, end=1960, frequency=12.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'tyleraland';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</article>
+
+    <footer>
+        <p>&copy; Tyler A Land 2016</p>
+<p>Built using <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a></p>    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64863813-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "name": "Play with R data sets in Python",
+  "headline": "Play with R data sets in Python",
+  "datePublished": "2016-01-27 00:00:00-08:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Tyler A Land",
+    "url": "http://tyleraland.github.io/blog/author/tyler-a-land.html"
+  },
+  "image": "http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg",
+  "url": "http://tyleraland.github.io/blog/play-with-r-data-sets-in-python.html",
+  "description": "R comes with a plethora of data sets to play with out of the box, which really come in handy when you're exploring how new functions work. While Python's pandas package tries to emulate the best parts of R's data frames, it can be tedious to find ..."
+}
+</script></body>
+</html>
