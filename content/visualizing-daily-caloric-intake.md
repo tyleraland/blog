@@ -1,7 +1,7 @@
 title: Visualizing Daily Caloric Intake
 date: 2013-09-18
 
-After much data collection and munging, I'm proud to present this graph of my strange eating habits for July 2013.
+After much data collection and munging, I'm able to present this graph of my strange eating habits for July 2013.
 ![July's Macros](/blog/images/macros_july.png)
 This breaks down my caloric consumption for each day by carbohydrates (blue), fat (green), and protein (red).  I have data from March 2013 through August 2013, but I chose to drill down on just July.  In this month, I'd been experimenting with high-fat, low-carbohydrate/ketogenic diets for about 12 months and meticulously logging my food consumption, among other things.  By July, the experiment was over and I'd begun to consciously increase my carbohydrate intake, so it should look a little more "balanced" than prior low-carb months.
 
