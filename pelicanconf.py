@@ -7,7 +7,7 @@ from os import path
 ### basic theme Options
 AUTHOR = u'Tyler A Land'
 # This doesn't affect the displayed title
-SITENAME = u'Super User Blog'
+SITENAME = u'superuser blog'
 # SITEURL is also defined in publishconf.py; blank URL is for opening with file://
 #SITEURL = 'http://tyleraland.github.io/techandlife'
 SITEURL = 'http://localhost:8000'
@@ -17,7 +17,7 @@ DEFAULT_LANG = u'en'
 FAVICON = path.join(SITEURL, 'favicon.ico')
 
 ### Flex theme options
-SITETITLE = 'Super User Blog'
+SITETITLE = 'superuser'
 #SITELOGO = ''
 SITELOGO = 'http://i1045.photobucket.com/albums/b453/tyleraland/2015-08-29_headshot_small_zpsto26xaw5.jpg'
 COPYRIGHT_YEAR = datetime.now().strftime("%Y")
@@ -26,6 +26,7 @@ USE_FOLDER_AS_CATEGORY = True
 
 ###
 PATH = 'content'
+
 STATIC_PATHS = ['images', 'extra/favicon.ico']
 
 # Feed generation is usually not desired when developing
